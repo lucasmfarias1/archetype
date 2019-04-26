@@ -1,0 +1,23 @@
+<h2>Heroes#new</h2>
+
+<%= form_for @hero, url: heroes_path do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :job %>
+    <%= f.text_field :job %>
+  </div>
+  <div>
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+  </div>
+  <div>
+    <%= f.label :race %>
+    <%= f.text_field :race %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

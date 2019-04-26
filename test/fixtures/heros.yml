@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  gender: MyString
+  race: MyString
+  class: MyString
+  power: 
+  speed: 
+  vitality: 
+  max_hp: 
+
+two:
+  name: MyString
+  gender: MyString
+  race: MyString
+  class: MyString
+  power: 
+  speed: 
+  vitality: 
+  max_hp: 

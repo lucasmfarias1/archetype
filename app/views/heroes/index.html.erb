@@ -1,0 +1,22 @@
+<h2>Heroes#index</h2>
+
+<p>
+  <%= link_to 'New Hero', new_hero_path %>
+</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Race</th>
+    <th>Job</th>
+    <th>Gender</th>
+  </tr>
+<% @heroes.each do |hero| %>
+  <tr>
+    <td><%= hero.name %></td>
+    <td><%= hero.race %></td>
+    <td><%= hero.job %></td>
+    <td><%= hero.gender %></td>
+  </tr>
+<% end %>
+</table>
