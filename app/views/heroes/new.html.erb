@@ -1,21 +1,50 @@
 <h2>Heroes#new</h2>
 
-<%= form_for @hero, url: heroes_path do |f| %>
+<%= form_with model: @hero, url: heroes_path, class: 'hero-form' do |f| %>
+  <div>
+  <h3>
+    <%= f.label :archetypes %>
+  </h3>
+  <div class='hero-form_input'>
+    <div>
+      <%= f.radio_button :archetype, 'dps', class: 'hero-form_radio' %>
+      <%= f.label :archetype_dps do %>
+        <%= image_tag 'dps.png' %>
+      <% end %>
+    </div>
+    <div>
+      <%= f.radio_button :archetype, 'tank', class: 'hero-form_radio' %>
+      <%= f.label :archetype_tank do %>
+        <%= image_tag 'tank.png' %>
+      <% end %>
+    </div>
+    <div>
+      <%= f.radio_button :archetype, 'healer', class: 'hero-form_radio' %>
+      <%= f.label :archetype_healer do %>
+        <%= image_tag 'healer.png' %>
+      <% end %>
+    </div>
+  </div>
+  </div>
+
+  <div class='hero-form_input'>
+    <div>
+      <%= f.radio_button :gender, 'male', class: 'hero-form_radio' %>
+      <%= f.label :gender_male do %>
+        <%= image_tag 'male.png' %>
+      <% end %>
+    </div>
+    <div>
+      <%= f.radio_button :gender, 'female', class: 'hero-form_radio' %>
+      <%= f.label :gender_female do %>
+        <%= image_tag 'female.png' %>
+      <% end %>
+    </div>
+  </div>
+
   <div>
     <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :job %>
-    <%= f.text_field :job %>
-  </div>
-  <div>
-    <%= f.label :gender %>
-    <%= f.text_field :gender %>
-  </div>
-  <div>
-    <%= f.label :race %>
-    <%= f.text_field :race %>
+    <%= f.text_field :name, autocomplete: 'off' %>
   </div>
   <div>
     <%= f.submit %>

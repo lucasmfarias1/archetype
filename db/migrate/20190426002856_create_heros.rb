@@ -3,6 +3,7 @@ class CreateHeros < ActiveRecord::Migration[5.2]
     create_table :heros do |t|
       t.string :name
       t.string :gender
+      t.string :archetype
       t.string :race
       t.string :job
       t.integer :power

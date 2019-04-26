@@ -7,16 +7,13 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Race</th>
-    <th>Job</th>
-    <th>Gender</th>
+    <th>Archetype</th>
   </tr>
 <% @heroes.each do |hero| %>
-  <tr>
+  <tr id='hero-<%= hero.id %>'>
     <td><%= hero.name %></td>
-    <td><%= hero.race %></td>
-    <td><%= hero.job %></td>
-    <td><%= hero.gender %></td>
+    <td><%= hero.archetype %></td>
+    <td><%= link_to 'Delete', hero_path(hero), method: :delete, remote:true %>
   </tr>
 <% end %>
 </table>

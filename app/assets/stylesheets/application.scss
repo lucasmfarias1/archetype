@@ -14,6 +14,16 @@
  *= require_self
  */
 
+ @font-face {
+  font-family: 'Mecha';
+  src: font-url('Mecha.ttf');
+}
+@font-face {
+  font-family: 'Mecha';
+  src: font-url('Mecha_Bold.ttf');
+  font-weight: 700;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -21,11 +31,12 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 100%;
+  font-family: 'Mecha', cursive;
+  font-size: 22px;
+  font-weight: 700;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 header {
@@ -38,16 +49,30 @@ header {
 
 h1 {
   flex-basis: 100%;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #033;
+}
+
+a:visited {
+  color: #033;
 }
 
 .menu {
   flex-basis: 26px;
   background: none;
   border: none;
-  padding: 0 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-right: 20px;
 }
 
 main {
-  flex-basis: 100%;
+  flex: 1;
   padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
 }

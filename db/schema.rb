@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_04_26_002856) do
   create_table "heros", force: :cascade do |t|
     t.string "name"
     t.string "gender"
+    t.string "archetype"
     t.string "race"
     t.string "job"
     t.integer "power"

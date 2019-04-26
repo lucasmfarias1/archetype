@@ -14,8 +14,18 @@ class HeroesController < ApplicationController
     redirect_to heroes_path
   end
 
+  def destroy
+    @hero = Hero.find(params[:id])
+    respond_to do |format|
+      if @hero.delete
+        format.html { redirect_to heroes_path }
+        format.js
+      end
+    end
+  end
+
   private
   def hero_params
-    params.require(:hero).permit(:name, :job, :gender, :race)
+    params.require(:hero).permit(:name, :archetype, :job, :gender, :race)
   end
 end
