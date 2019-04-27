@@ -1,11 +1,45 @@
+let state = {
+  gender: 'male',
+  gear: null
+}
+
 const deleteHero = (id) => {
   const deletedHero = document.querySelector('#hero-' + id);
   deletedHero.parentNode.removeChild(deletedHero);
 }
 
 const changeBase = (gender) => {
-  const heroBase = document.querySelector('.hero_base');
   switch(gender) {
+    case 'male':
+      state.gender = 'male';
+      break;
+    case 'female':
+      state.gender = 'female';
+      break;
+  }
+  changeHero(state);
+}
+
+const changeGear = (gear) => {
+  switch(gear) {
+    case 'heavy':
+      state.gear = 'heavy';
+      break;
+    case 'medium':
+      state.gear = 'medium';
+      break;
+    case 'light':
+      state.gear = 'light';
+      break;
+  }
+  changeHero(state);
+}
+
+const changeHero = (state) => {
+  const heroBase = document.querySelector('.hero_base');
+  const heroGear = document.querySelector('.hero_gear');
+
+  switch(state.gender) {
     case 'male':
       heroBase.src="<%= asset_data_uri 'hero/base/male.png' %>";
       break;
@@ -13,20 +47,25 @@ const changeBase = (gender) => {
       heroBase.src="<%= asset_data_uri 'hero/base/female.png' %>";
       break;
   }
-}
 
-const changeGear = (gear) => {
-  const heroGear = document.querySelector('.hero_gear');
-  switch(gear) {
+  switch(state.gear) {
     case 'heavy':
+    if (state.gender === 'male') {
       heroGear.src="<%= asset_data_uri 'hero/gear/chainmail-m.png' %>";
-      break;
-    case 'medium':
-      heroGear.src="";
-      break;
-    case 'light':
-      heroGear.src="";
-      break;
+    } else if (state.gender === 'female') {
+      heroGear.src="<%= asset_data_uri 'hero/gear/chainmail-f.png' %>";
+    }
+    break;
+  case 'medium':
+    heroGear.src="";
+    break;
+  case 'light':
+    if (state.gender === 'male') {
+      heroGear.src="<%= asset_data_uri 'hero/gear/robe-m.png' %>";
+    } else if (state.gender === 'female') {
+      heroGear.src="<%= asset_data_uri 'hero/gear/robe-f.png' %>";
+    }
+    break;
   }
 }
 
