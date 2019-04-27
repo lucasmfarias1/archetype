@@ -41,3 +41,18 @@
   width: 52px;
   height: 52px;
 }
+
+// HERO DISPLAY
+.hero {
+  position: relative;
+  width: 96px;
+  height: 96px;
+}
+
+.hero_base {
+  position: absolute;
+}
+.hero_gear {
+  position: absolute;
+  z-index: 1;
+}

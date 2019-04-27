@@ -8,19 +8,19 @@
   <div class='hero-form_input'>
     <div>
       <%= f.radio_button :archetype, 'dps', class: 'hero-form_radio' %>
-      <%= f.label :archetype_dps do %>
+      <%= f.label :archetype_dps, onclick: 'changeGear("medium")' do %>
         <%= image_tag 'dps.png' %>
       <% end %>
     </div>
     <div>
       <%= f.radio_button :archetype, 'tank', class: 'hero-form_radio' %>
-      <%= f.label :archetype_tank do %>
+      <%= f.label :archetype_tank, onclick: 'changeGear("heavy")' do %>
         <%= image_tag 'tank.png' %>
       <% end %>
     </div>
     <div>
       <%= f.radio_button :archetype, 'healer', class: 'hero-form_radio' %>
-      <%= f.label :archetype_healer do %>
+      <%= f.label :archetype_healer, onclick: 'changeGear("light")' do %>
         <%= image_tag 'healer.png' %>
       <% end %>
     </div>
@@ -30,16 +30,21 @@
   <div class='hero-form_input'>
     <div>
       <%= f.radio_button :gender, 'male', class: 'hero-form_radio' %>
-      <%= f.label :gender_male do %>
+      <%= f.label :gender_male, onclick: 'changeBase("male")' do %>
         <%= image_tag 'male.png' %>
       <% end %>
     </div>
     <div>
       <%= f.radio_button :gender, 'female', class: 'hero-form_radio' %>
-      <%= f.label :gender_female do %>
+      <%= f.label :gender_female, onclick: 'changeBase("female")' do %>
         <%= image_tag 'female.png' %>
       <% end %>
     </div>
+  </div>
+
+  <div class='hero'>
+    <%= image_tag 'hero/base/male.png', class: 'hero_base' %>
+    <%= image_tag '', class: 'hero_gear' %>
   </div>
 
   <div>

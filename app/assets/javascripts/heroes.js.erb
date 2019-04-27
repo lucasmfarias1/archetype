@@ -1,0 +1,34 @@
+const deleteHero = (id) => {
+  const deletedHero = document.querySelector('#hero-' + id);
+  deletedHero.parentNode.removeChild(deletedHero);
+}
+
+const changeBase = (gender) => {
+  const heroBase = document.querySelector('.hero_base');
+  switch(gender) {
+    case 'male':
+      heroBase.src="<%= asset_data_uri 'hero/base/male.png' %>";
+      break;
+    case 'female':
+      heroBase.src="<%= asset_data_uri 'hero/base/female.png' %>";
+      break;
+  }
+}
+
+const changeGear = (gear) => {
+  const heroGear = document.querySelector('.hero_gear');
+  switch(gear) {
+    case 'heavy':
+      heroGear.src="<%= asset_data_uri 'hero/gear/chainmail-m.png' %>";
+      break;
+    case 'medium':
+      heroGear.src="";
+      break;
+    case 'light':
+      heroGear.src="";
+      break;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+});
