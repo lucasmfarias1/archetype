@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
+# Handles creating, deleting and selecting Heroes
 class HeroesController < ApplicationController
   before_action :authenticate_user!
-  
+  before_action :set_hero, only: [:destroy]
+
   def index
     @heroes = Hero.all
   end
@@ -10,12 +14,17 @@ class HeroesController < ApplicationController
   end
 
   def create
-    Hero.create(hero_params)
-    redirect_to heroes_path
+    @hero = Hero.new(hero_params)
+
+    respond_to do |format|
+      if @hero.save
+        format.html { redirect_to heroes_path }
+        format.js
+      end
+    end
   end
 
   def destroy
-    @hero = Hero.find(params[:id])
     respond_to do |format|
       if @hero.delete
         format.html { redirect_to heroes_path }
@@ -25,7 +34,12 @@ class HeroesController < ApplicationController
   end
 
   private
+
   def hero_params
     params.require(:hero).permit(:name, :archetype, :job, :gender, :race)
+  end
+
+  def set_hero
+    @hero = Hero.find(params[:id])
   end
 end

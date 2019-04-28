@@ -1,5 +1,5 @@
 let state = {
-  gender: 'male',
+  gender: 'female',
   gear: null
 }
 
@@ -17,7 +17,7 @@ const changeBase = (gender) => {
       state.gender = 'female';
       break;
   }
-  changeHero(state);
+  renderHero(state);
 }
 
 const changeGear = (gear) => {
@@ -32,14 +32,14 @@ const changeGear = (gear) => {
       state.gear = 'light';
       break;
   }
-  changeHero(state);
+  renderHero(state);
 }
 
-const changeHero = (state) => {
+const renderHero = (state) => {
   const heroBase = document.querySelector('.hero_base');
   const heroGear = document.querySelector('.hero_gear');
 
-  switch(state.gender) {
+  switch (state.gender) {
     case 'male':
       heroBase.src="<%= asset_data_uri 'hero/base/male.png' %>";
       break;
@@ -48,7 +48,7 @@ const changeHero = (state) => {
       break;
   }
 
-  switch(state.gear) {
+  switch (state.gear) {
     case 'heavy':
       if (state.gender === 'male') {
         heroGear.src="<%= asset_data_uri 'hero/gear/chainmail-m.png' %>";
@@ -58,7 +58,7 @@ const changeHero = (state) => {
       break;
     case 'medium':
       if (state.gender === 'male') {
-        heroGear.src="";
+        heroGear.src="<%= asset_data_uri 'hero/gear/leather-m.png' %>";
       } else if (state.gender === 'female') {
         heroGear.src="<%= asset_data_uri 'hero/gear/leather-f.png' %>";
       }
@@ -72,6 +72,3 @@ const changeHero = (state) => {
       break;
   }
 }
-
-document.addEventListener("DOMContentLoaded", function(event) {
-});

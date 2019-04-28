@@ -9,11 +9,16 @@
     <th>Name</th>
     <th>Archetype</th>
   </tr>
-<% @heroes.each do |hero| %>
-  <tr id='hero-<%= hero.id %>'>
-    <td><%= hero.name %></td>
-    <td><%= hero.archetype %></td>
-    <td><%= link_to 'Delete', hero_path(hero), method: :delete, remote:true %>
-  </tr>
-<% end %>
+  <% @heroes.each do |hero| %>
+    <tr id='hero-<%= hero.id %>'>
+      <td><%= hero.name %></td>
+      <td><%= hero.archetype %></td>
+      <td>
+        <%= link_to 'Delete',
+          hero_path(hero),
+          method: :delete,
+          remote:true %>
+      </td>
+    </tr>
+  <% end %>
 </table>
