@@ -50,22 +50,26 @@ const changeHero = (state) => {
 
   switch(state.gear) {
     case 'heavy':
-    if (state.gender === 'male') {
-      heroGear.src="<%= asset_data_uri 'hero/gear/chainmail-m.png' %>";
-    } else if (state.gender === 'female') {
-      heroGear.src="<%= asset_data_uri 'hero/gear/chainmail-f.png' %>";
-    }
-    break;
-  case 'medium':
-    heroGear.src="";
-    break;
-  case 'light':
-    if (state.gender === 'male') {
-      heroGear.src="<%= asset_data_uri 'hero/gear/robe-m.png' %>";
-    } else if (state.gender === 'female') {
-      heroGear.src="<%= asset_data_uri 'hero/gear/robe-f.png' %>";
-    }
-    break;
+      if (state.gender === 'male') {
+        heroGear.src="<%= asset_data_uri 'hero/gear/chainmail-m.png' %>";
+      } else if (state.gender === 'female') {
+        heroGear.src="<%= asset_data_uri 'hero/gear/chainmail-f.png' %>";
+      }
+      break;
+    case 'medium':
+      if (state.gender === 'male') {
+        heroGear.src="";
+      } else if (state.gender === 'female') {
+        heroGear.src="<%= asset_data_uri 'hero/gear/leather-f.png' %>";
+      }
+      break;
+    case 'light':
+      if (state.gender === 'male') {
+        heroGear.src="<%= asset_data_uri 'hero/gear/robe-m.png' %>";
+      } else if (state.gender === 'female') {
+        heroGear.src="<%= asset_data_uri 'hero/gear/robe-f.png' %>";
+      }
+      break;
   }
 }
 
