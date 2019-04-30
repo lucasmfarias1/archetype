@@ -1,6 +1,39 @@
 let state = {
   gender: 'female',
+  race: 'elf',
   gear: null
+}
+
+const toggleRaceModal = () => {
+  const raceModal = document.querySelector('.hero-form_race-modal');
+  const style = window.getComputedStyle(raceModal);
+  const display = style.getPropertyValue('display');
+  if (display === 'none') {
+    raceModal.style.display = 'flex';
+  } else {
+    raceModal.style.display = 'none';
+  }
+}
+
+const setRace = (race) => {
+  switch (race) {
+    case 'human':
+      state.race = 'human';
+      break;
+  
+    case 'elf':
+      state.race = 'elf';
+      break;
+
+    case 'orc':
+      state.race = 'orc';
+      break;
+
+    default:
+      break;
+  }
+  renderHero(state);
+  toggleRaceModal();
 }
 
 const deleteHero = (id) => {
@@ -9,7 +42,7 @@ const deleteHero = (id) => {
 }
 
 const changeBase = (gender) => {
-  switch(gender) {
+  switch (gender) {
     case 'male':
       state.gender = 'male';
       break;
@@ -21,7 +54,7 @@ const changeBase = (gender) => {
 }
 
 const changeGear = (gear) => {
-  switch(gear) {
+  switch (gear) {
     case 'heavy':
       state.gear = 'heavy';
       break;
@@ -69,6 +102,21 @@ const renderHero = (state) => {
       } else if (state.gender === 'female') {
         heroGear.src="<%= asset_data_uri 'hero/gear/robe-f.png' %>";
       }
+      break;
+  }
+
+  const raceDisplay = document.querySelector('.hero-form_race-display');
+  switch (state.race) {
+    case 'human':
+      raceDisplay.src="<%= asset_data_uri 'male.png' %>";
+      break;
+
+    case 'elf':
+      raceDisplay.src="<%= asset_data_uri 'ranged.png' %>";
+      break;
+
+    case 'orc':
+      raceDisplay.src="<%= asset_data_uri 'melee.png' %>";
       break;
   }
 }

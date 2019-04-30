@@ -61,6 +61,10 @@ a:visited {
   color: #033;
 }
 
+td {
+  text-align: center;
+}
+
 .menu {
   flex-basis: 26px;
   background: none;
@@ -75,4 +79,32 @@ main {
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
+}
+
+.arrow-right {
+  border: solid #006;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  margin: 3px;
+  transform: rotate(-45deg);
+  cursor: pointer;
+}
+
+.arrow-left {
+  border: solid #006;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  margin: 3px;
+  transform: rotate(135deg);
+  cursor: pointer;
+}
+
+.cursor-normal {
+  cursor: default !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
 }

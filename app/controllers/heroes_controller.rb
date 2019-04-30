@@ -36,7 +36,7 @@ class HeroesController < ApplicationController
   private
 
   def hero_params
-    params.require(:hero).permit(:name, :archetype, :job, :gender, :race)
+    params.require(:hero).permit(:name, :archetype, :gender)
   end
 
   def set_hero
