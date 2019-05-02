@@ -33,15 +33,15 @@
   <div class='hero-form_two-inputs'>
     <div class='hero-form_input'>
       <div>
-        <%= f.radio_button :gender, 'male', class: 'hero-form_radio' %>
-        <%= f.label :gender_male, onclick: 'changeBase("male")' do %>
-          <%= image_tag 'male.png' %>
+        <%= f.radio_button :dmg, 'magic', class: 'hero-form_radio' %>
+        <%= f.label :dmg_magic, onclick: '' do %>
+          <%= image_tag 'magical.png' %>
         <% end %>
       </div>
       <div>
-        <%= f.radio_button :gender, 'female', class: 'hero-form_radio' %>
-        <%= f.label :gender_female, onclick: 'changeBase("female")' do %>
-          <%= image_tag 'female.png' %>
+        <%= f.radio_button :dmg, 'physic', class: 'hero-form_radio' %>
+        <%= f.label :dmg_physic, onclick: '' do %>
+          <%= image_tag 'physical.png' %>
         <% end %>
       </div>
     </div>
@@ -69,7 +69,7 @@
           class: 'cursor-pointer hero-form_race-display',
           onclick: 'toggleRaceModal()' %>
       </div>
-      <div class='hero-form_race-modal'>
+      <div class='hero-form_race-modal' onclick='toggleRaceModal()'>
         <div>
           <%= f.radio_button :race,
             'human',
@@ -83,7 +83,7 @@
             'elf',
             class: 'hero-form_radio' %>
           <%= f.label :race_elf, onclick: 'setRace("elf")' do %>
-            <%= image_tag 'ranged.png' %>
+            <%= image_tag 'races/elf.png' %>
           <% end %>
         </div>
         <div>
@@ -96,10 +96,12 @@
         </div>
       </div>
     </div>
-    <div class='hero'>
-      <%= image_tag '', class: 'hero_base' %>
-      <%= image_tag '', class: 'hero_gear' %>
+
+    <div class='hero-form_preview'>
+      <%= image_tag '', class: 'hero-form_preview_base' %>
+      <%= image_tag '', class: 'hero-form_preview_gear' %>
     </div>
+
     <div class='hero-form_input hero-form_vertical'>
       <div>
         <%= f.radio_button :gender, 'male', class: 'hero-form_radio' %>

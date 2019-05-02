@@ -69,8 +69,8 @@ const changeGear = (gear) => {
 }
 
 const renderHero = (state) => {
-  const heroBase = document.querySelector('.hero_base');
-  const heroGear = document.querySelector('.hero_gear');
+  const heroBase = document.querySelector('.hero-form_preview_base');
+  const heroGear = document.querySelector('.hero-form_preview_gear');
 
   switch (state.gender) {
     case 'male':
@@ -112,7 +112,7 @@ const renderHero = (state) => {
       break;
 
     case 'elf':
-      raceDisplay.src="<%= asset_data_uri 'ranged.png' %>";
+      raceDisplay.src="<%= asset_data_uri 'races/elf.png' %>";
       break;
 
     case 'orc':

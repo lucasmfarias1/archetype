@@ -14,6 +14,9 @@
       <td><%= hero.name %></td>
       <td><%= hero.archetype %></td>
       <td>
+        <%= render partial: 'heroes/hero', locals: {hero: hero} %>
+      </td>
+      <td>
         <%= link_to 'Delete',
           hero_path(hero),
           method: :delete,

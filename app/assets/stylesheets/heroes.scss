@@ -20,7 +20,7 @@
 }
 
 .hero-form_radio + label {
-  filter: saturate(0);
+  filter: saturate(0.2);
   cursor: pointer;
 }
 
@@ -29,14 +29,13 @@
 }
 
 .hero-form_radio:not(:checked):hover + label {
-  filter: saturate(0.5);
+  filter: saturate(1);
 }
 
 .hero-form_input {
   display: flex;
-  background-color: #ddd;
   padding: 3px;
-  border-radius: 3px;
+  border: 2px solid #006;
   margin: 5px;
 }
 
@@ -69,7 +68,6 @@
   padding: 3px;
   margin: 3px;
   border: 2px solid #006;
-  box-shadow: 0 2px 4px #ccc;
 }
 
 .hero-form_race-modal {
@@ -91,17 +89,32 @@
   height: 52px;
 }
 
-// HERO DISPLAY
-.hero {
+.hero-form_preview {
   position: relative;
   width: 96px;
   height: 96px;
 }
 
-.hero_base {
+.hero-form_preview_base {
   position: absolute;
 }
-.hero_gear {
+.hero-form_preview_gear {
+  position: absolute;
+  z-index: 1;
+}
+
+// HERO DISPLAY
+.hero-display {
+  position: relative;
+  width: 96px;
+  height: 96px;
+}
+
+.hero-display_base {
+  position: absolute;
+}
+
+.hero-display_gear {
   position: absolute;
   z-index: 1;
 }
