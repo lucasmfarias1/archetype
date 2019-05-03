@@ -1,6 +1,6 @@
 let state = {
   gender: 'female',
-  race: 'elf',
+  race: 'human',
   gear: null
 }
 
@@ -108,7 +108,7 @@ const renderHero = (state) => {
   const raceDisplay = document.querySelector('.hero-form_race-display');
   switch (state.race) {
     case 'human':
-      raceDisplay.src="<%= asset_data_uri 'male.png' %>";
+      raceDisplay.src="<%= asset_data_uri 'races/human.png' %>";
       break;
 
     case 'elf':

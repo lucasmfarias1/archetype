@@ -65,7 +65,7 @@
   <div class='hero-form_three-inputs'>
     <div>
       <div class='hero-form_race'>
-        <%= image_tag 'ranged.png',
+        <%= image_tag 'races/human.png',
           class: 'cursor-pointer hero-form_race-display',
           onclick: 'toggleRaceModal()' %>
       </div>
@@ -75,7 +75,7 @@
             'human',
             class: 'hero-form_radio' %>
           <%= f.label :race_human, onclick: 'setRace("human")' do %>
-            <%= image_tag 'male.png' %>
+            <%= image_tag 'races/human.png' %>
           <% end %>
         </div>
         <div>
