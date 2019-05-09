@@ -74,7 +74,7 @@ const renderHero = (state) => {
 
   switch (state.gender) {
     case 'male':
-      heroBase.src="<%= asset_data_uri 'hero/base/male.png' %>";
+      heroBase.src="<%= asset_data_uri 'hero/base/male-elf.png' %>";
       break;
     case 'female':
       heroBase.src="<%= asset_data_uri 'hero/base/female-elf.png' %>";
@@ -84,23 +84,23 @@ const renderHero = (state) => {
   switch (state.gear) {
     case 'heavy':
       if (state.gender === 'male') {
-        heroGear.src="<%= asset_data_uri 'hero/gear/chainmail-m.png' %>";
+        heroGear.src="<%= asset_data_uri 'hero/gear/1/male.png' %>";
       } else if (state.gender === 'female') {
-        heroGear.src="<%= asset_data_uri 'hero/gear/chainmail-f.png' %>";
+        heroGear.src="<%= asset_data_uri 'hero/gear/1/female.png' %>";
       }
       break;
     case 'medium':
       if (state.gender === 'male') {
-        heroGear.src="<%= asset_data_uri 'hero/gear/leather-m.png' %>";
+        heroGear.src="<%= asset_data_uri 'hero/gear/2/male.png' %>";
       } else if (state.gender === 'female') {
-        heroGear.src="<%= asset_data_uri 'hero/gear/leather-f.png' %>";
+        heroGear.src="<%= asset_data_uri 'hero/gear/2/female.png' %>";
       }
       break;
     case 'light':
       if (state.gender === 'male') {
-        heroGear.src="<%= asset_data_uri 'hero/gear/robe-m.png' %>";
+        heroGear.src="<%= asset_data_uri 'hero/gear/3/male.png' %>";
       } else if (state.gender === 'female') {
-        heroGear.src="<%= asset_data_uri 'hero/gear/robe-f.png' %>";
+        heroGear.src="<%= asset_data_uri 'hero/gear/3/female.png' %>";
       }
       break;
   }

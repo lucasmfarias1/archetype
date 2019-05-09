@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_26_002856) do
+ActiveRecord::Schema.define(version: 2019_05_08_233804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "gears", force: :cascade do |t|
+    t.string "name"
+    t.integer "armor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hero_gears", force: :cascade do |t|
+    t.bigint "hero_id"
+    t.bigint "gear_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gear_id"], name: "index_hero_gears_on_gear_id"
+    t.index ["hero_id"], name: "index_hero_gears_on_hero_id"
+  end
 
   create_table "heros", force: :cascade do |t|
     t.string "name"
@@ -41,4 +57,6 @@ ActiveRecord::Schema.define(version: 2019_04_26_002856) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "hero_gears", "gears"
+  add_foreign_key "hero_gears", "heros"
 end

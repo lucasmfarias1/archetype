@@ -5,6 +5,12 @@ class HeroesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_hero, only: [:destroy]
 
+  GEAR = {
+    'tank'   => 1,
+    'dps'    => 2,
+    'healer' => 3
+  }
+
   def index
     @heroes = Hero.all
   end
@@ -15,9 +21,14 @@ class HeroesController < ApplicationController
 
   def create
     @hero = Hero.new(hero_params)
+    @hero_gear = HeroGear.new(
+      hero: @hero,
+      gear: Gear.find(GEAR[params[:hero][:archetype]])
+    )
 
     respond_to do |format|
       if @hero.save
+        @hero_gear.save
         format.html { redirect_to heroes_path }
         format.js
       end
@@ -36,7 +47,7 @@ class HeroesController < ApplicationController
   private
 
   def hero_params
-    params.require(:hero).permit(:name, :archetype, :gender)
+    params.require(:hero).permit(:name, :archetype, :gender, :race)
   end
 
   def set_hero

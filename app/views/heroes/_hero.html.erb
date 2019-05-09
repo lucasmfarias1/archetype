@@ -1,4 +1,8 @@
 <div class="hero-display">
-  <%= image_tag "hero/base/#{hero.gender}.png", class: 'hero-display_base' %>
-  <%= image_tag "", class: 'hero-display_gear' %>
+  <%= image_tag "hero/base/#{hero.gender}-#{hero.race}.png",
+    class: 'hero-display_base' %>
+  <% if hero.hero_gear %>
+    <%= image_tag "hero/gear/#{hero.gear_id}/#{hero.gender}.png",
+      class: 'hero-display_gear' %>
+  <% end %>
 </div>
