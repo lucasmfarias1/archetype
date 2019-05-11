@@ -4,24 +4,17 @@
   <%= link_to 'New Hero', new_hero_path %>
 </p>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Archetype</th>
-  </tr>
+<div class="hero-selection">
   <% @heroes.each do |hero| %>
-    <tr id='hero-<%= hero.id %>'>
-      <td><%= hero.name %></td>
-      <td><%= hero.archetype %></td>
-      <td>
-        <%= render partial: 'heroes/hero', locals: {hero: hero} %>
-      </td>
-      <td>
-        <%= link_to 'Delete',
+    <div id='hero-<%= hero.id %>'>
+      <h4><%= hero.name %> (<%= hero.archetype %>)</h4>
+      <%= render partial: 'heroes/hero', locals: {hero: hero} %>
+      <div>
+        <%= link_to 'X',
           hero_path(hero),
           method: :delete,
           remote:true %>
-      </td>
-    </tr>
+      </div>
+    </div>
   <% end %>
-</table>
+</div>

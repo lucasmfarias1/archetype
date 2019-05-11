@@ -6,10 +6,10 @@ class HeroesController < ApplicationController
   before_action :set_hero, only: [:destroy]
 
   GEAR = {
-    'tank'   => 1,
-    'dps'    => 2,
+    'tank' => 1,
+    'dps' => 2,
     'healer' => 3
-  }
+  }.freeze
 
   def index
     @heroes = Hero.all
@@ -37,7 +37,7 @@ class HeroesController < ApplicationController
 
   def destroy
     respond_to do |format|
-      if @hero.delete
+      if @hero.destroy
         format.html { redirect_to heroes_path }
         format.js
       end

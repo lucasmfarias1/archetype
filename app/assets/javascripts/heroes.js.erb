@@ -74,11 +74,43 @@ const renderHero = (state) => {
 
   switch (state.gender) {
     case 'male':
-      heroBase.src="<%= asset_data_uri 'hero/base/male-elf.png' %>";
+      switch (state.race) {
+        case 'human':
+          heroBase.src="<%= asset_data_uri 'hero/base/male-human.png' %>";
+          break;
+        
+        case 'elf':
+          heroBase.src="<%= asset_data_uri 'hero/base/male-elf.png' %>";
+          break;
+
+        case 'orc':
+          heroBase.src="<%= asset_data_uri 'hero/base/male-orc.png' %>";
+          break;
+          
+        default:
+          break;
+      }
       break;
+
     case 'female':
-      heroBase.src="<%= asset_data_uri 'hero/base/female-elf.png' %>";
+      switch (state.race) {
+        case 'human':
+          heroBase.src="<%= asset_data_uri 'hero/base/female-human.png' %>";
+          break;
+        
+        case 'elf':
+          heroBase.src="<%= asset_data_uri 'hero/base/female-elf.png' %>";
+          break;
+
+        case 'orc':
+          heroBase.src="<%= asset_data_uri 'hero/base/female-orc.png' %>";
+          break;
+          
+        default:
+          break;
+      }
       break;
+
   }
 
   switch (state.gear) {

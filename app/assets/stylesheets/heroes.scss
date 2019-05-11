@@ -111,9 +111,13 @@
 }
 
 .hero-form_preview_base {
+  top: 0;
+  left: 0;
   position: absolute;
 }
 .hero-form_preview_gear {
+  top: 0;
+  left: 0;
   position: absolute;
   z-index: 1;
 }
@@ -126,10 +130,29 @@
 }
 
 .hero-display_base {
+  top: 0;
+  left: 0;
   position: absolute;
 }
 
 .hero-display_gear {
+  top: 0;
+  left: 0;
   position: absolute;
   z-index: 1;
+}
+
+// HERO INDEX
+
+.hero-selection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.hero-selection > div {
+  flex-basis: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
