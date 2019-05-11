@@ -65,13 +65,13 @@ td {
   text-align: center;
 }
 
-.menu {
-  flex-basis: 26px;
+.menu-button {
+  display: flex;
+  padding: 10px 20px;
+  margin-right: 20px;
   background: none;
   border: none;
-  padding: 10px 20px;
   cursor: pointer;
-  margin-right: 20px;
 }
 
 main {
