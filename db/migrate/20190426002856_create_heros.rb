@@ -4,12 +4,9 @@ class CreateHeros < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :gender
       t.string :archetype
+      t.string :range
+      t.string :damage
       t.string :race
-      t.string :job
-      t.integer :power
-      t.integer :speed
-      t.integer :vitality
-      t.integer :max_hp
 
       t.timestamps
     end

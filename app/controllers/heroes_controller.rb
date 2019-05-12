@@ -4,8 +4,9 @@
 class HeroesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_hero, only: [:destroy]
+  before_action :create_hero, only: [:create]
 
-  GEAR = {
+  STARTING_GEAR = {
     'tank' => 1,
     'dps' => 2,
     'healer' => 3
@@ -20,17 +21,14 @@ class HeroesController < ApplicationController
   end
 
   def create
-    @hero = Hero.new(hero_params)
-    @hero_gear = HeroGear.new(
-      hero: @hero,
-      gear: Gear.find(GEAR[params[:hero][:archetype]])
-    )
-
+    @hero.save!
     respond_to do |format|
-      if @hero.save
+      if @hero.valid? && @hero_gear.valid?
+        @hero.save
         @hero_gear.save
         format.html { redirect_to heroes_path }
-        format.js
+      else
+        format.html { redirect_to new_hero_path, alert: @hero.errors }
       end
     end
   end
@@ -47,10 +45,25 @@ class HeroesController < ApplicationController
   private
 
   def hero_params
-    params.require(:hero).permit(:name, :archetype, :gender, :race)
+    params.require(:hero).permit(
+      :name,
+      :archetype,
+      :gender,
+      :race,
+      :range,
+      :damage
+    )
   end
 
   def set_hero
     @hero = Hero.find(params[:id])
+  end
+
+  def create_hero
+    @hero = Hero.new(hero_params)
+    @hero_gear = HeroGear.new(
+      hero: @hero,
+      gear: Gear.find(STARTING_GEAR[@hero.archetype] || 1)
+    )
   end
 end

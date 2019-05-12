@@ -17,6 +17,8 @@
 
 let thisPage = null;
 
+let state = {};
+
 const refreshPageData = () => {
   const metaTag = document.querySelector('meta[name=psj]');
   const controller = metaTag.getAttribute('controller');
@@ -30,6 +32,14 @@ document.addEventListener("turbolinks:load", (event) => {
   switch (thisPage.controller) {
     case 'heroes':
       if (thisPage.action === 'new') {
+        state = {
+          gender: 'female',
+          race: 'human',
+          gear: null,
+          damage: null,
+          range: null,
+          name: null
+        }
         renderHero(state);
       }
       break;

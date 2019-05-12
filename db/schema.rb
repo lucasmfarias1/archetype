@@ -35,12 +35,9 @@ ActiveRecord::Schema.define(version: 2019_05_08_233804) do
     t.string "name"
     t.string "gender"
     t.string "archetype"
+    t.string "range"
+    t.string "damage"
     t.string "race"
-    t.string "job"
-    t.integer "power"
-    t.integer "speed"
-    t.integer "vitality"
-    t.integer "max_hp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

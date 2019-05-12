@@ -1,9 +1,3 @@
-let state = {
-  gender: 'female',
-  race: 'human',
-  gear: null
-}
-
 const toggleRaceModal = () => {
   const raceModal = document.querySelector('.hero-form_race-modal');
   const style = window.getComputedStyle(raceModal);
@@ -13,7 +7,7 @@ const toggleRaceModal = () => {
   } else {
     raceModal.style.display = 'none';
   }
-}
+};
 
 const setRace = (race) => {
   switch (race) {
@@ -32,8 +26,39 @@ const setRace = (race) => {
     default:
       break;
   }
+  raceSelected = true;
   renderHero(state);
   toggleRaceModal();
+};
+
+const setDamage = (damage) => {
+  switch (damage) {
+    case 'magical':
+      state.damage = 'magical';
+      break;
+
+    case 'physical':
+      state.damage = 'physical';
+      break;
+  }
+};
+
+const setRange = (range) => {
+  switch (range) {
+    case 'melee':
+      state.range = 'melee';
+      break;
+
+    case 'ranged':
+      state.range = 'ranged';
+      break;
+  }
+};
+
+const setName = () => {
+  const nameInput = document.getElementById('input-hero-name');
+  state.name = nameInput.value;
+  isHeroFormValid();
 }
 
 const deleteHero = (id) => {
@@ -111,27 +136,30 @@ const renderHero = (state) => {
       }
       break;
 
+    default:
+      break;
+
   }
 
   switch (state.gear) {
     case 'heavy':
       if (state.gender === 'male') {
         heroGear.src="<%= asset_data_uri 'hero/gear/1/male.png' %>";
-      } else if (state.gender === 'female') {
+      } else {
         heroGear.src="<%= asset_data_uri 'hero/gear/1/female.png' %>";
       }
       break;
     case 'medium':
       if (state.gender === 'male') {
         heroGear.src="<%= asset_data_uri 'hero/gear/2/male.png' %>";
-      } else if (state.gender === 'female') {
+      } else {
         heroGear.src="<%= asset_data_uri 'hero/gear/2/female.png' %>";
       }
       break;
     case 'light':
       if (state.gender === 'male') {
         heroGear.src="<%= asset_data_uri 'hero/gear/3/male.png' %>";
-      } else if (state.gender === 'female') {
+      } else {
         heroGear.src="<%= asset_data_uri 'hero/gear/3/female.png' %>";
       }
       break;
@@ -151,4 +179,26 @@ const renderHero = (state) => {
       raceDisplay.src="<%= asset_data_uri 'races/orc.png' %>";
       break;
   }
+  isHeroFormValid();
+}
+
+const isHeroFormValid = () => {
+  const heroSubmitBtn = document.getElementById('hero-submit-button');
+
+  if (state.name === '') {
+    heroSubmitBtn.style.cursor = 'not-allowed';
+    heroSubmitBtn.disabled = true;
+    return false;
+  }
+  
+  for (let property in state) {
+    if (state[property] === null) {
+      heroSubmitBtn.disabled = true;
+      return false;
+    }
+  }
+
+  heroSubmitBtn.disabled = false;
+  heroSubmitBtn.style.cursor = 'pointer';
+  return true;
 }
