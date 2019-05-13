@@ -1,4 +1,5 @@
 class Hero < ApplicationRecord
+  belongs_to :user
   has_one :hero_gear,
           class_name: :HeroGear,
           foreign_key: :hero_id,

@@ -13,15 +13,15 @@ class HeroesController < ApplicationController
   }.freeze
 
   def index
-    @heroes = Hero.all
+    @heroes = current_user.heroes
   end
 
   def new
+    return redirect_to heroes_path if current_user.heroes.count >= 5
     @hero = Hero.new
   end
 
   def create
-    @hero.save!
     respond_to do |format|
       if @hero.valid? && @hero_gear.valid?
         @hero.save
@@ -60,7 +60,7 @@ class HeroesController < ApplicationController
   end
 
   def create_hero
-    @hero = Hero.new(hero_params)
+    @hero = current_user.heroes.create(hero_params)
     @hero_gear = HeroGear.new(
       hero: @hero,
       gear: Gear.find(STARTING_GEAR[@hero.archetype] || 1)

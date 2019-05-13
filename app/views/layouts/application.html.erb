@@ -21,6 +21,8 @@
         <h1>Archetype</h1>
       <% end %>
     </header>
+    <%= link_to 'heroes-cpanel', cpanel_heroes_path %>
+    <%= link_to 'logout', destroy_user_session_path, method: :delete %>
 
     <main>
       <p class="notice"><%= notice %></p>

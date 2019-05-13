@@ -38,8 +38,10 @@ ActiveRecord::Schema.define(version: 2019_05_08_233804) do
     t.string "range"
     t.string "damage"
     t.string "race"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_heros_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,4 +58,5 @@ ActiveRecord::Schema.define(version: 2019_05_08_233804) do
 
   add_foreign_key "hero_gears", "gears"
   add_foreign_key "hero_gears", "heros"
+  add_foreign_key "heros", "users"
 end

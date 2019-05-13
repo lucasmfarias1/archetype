@@ -1,0 +1,20 @@
+<h1>Cpanel#heroes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Race</th>
+    <th>Gender</th>
+    <th>Archetype</th>
+    <th>Owner</th>
+  </tr>
+  <% @heroes.each do |hero| %>
+    <tr>
+      <td><%= hero.name %></td>
+      <td><%= hero.race %></td>
+      <td><%= hero.gender %></td>
+      <td><%= hero.archetype %></td>
+      <td><%= hero.user.email %></td>
+    </tr>
+  <% end %>
+</table>
